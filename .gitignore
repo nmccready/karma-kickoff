@@ -1,0 +1,21 @@
+.DS_Store
+/.settings
+/.project
+node_modules
+old/
+tmp/
+.tmp/
+*~
+/nbproject
+.idea
+.grunt
+/spec/coverage
+*.iml
+/bower_components
+/curl_components
+.tmp
+/app
+/dist/coverage/
+
+# Meteor package creation files
+.versions

@@ -1,0 +1,33 @@
+{
+  "name": "karma-kickoff",
+  "version": "0.0.1",
+  "description": "Kick off karma with ease along with running specific specs with one config file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha spec/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nmccready/karma-kickoff.git"
+  },
+  "keywords": [
+    "karma",
+    "spec",
+    "testing",
+    "test"
+  ],
+  "author": "Nicholas McCready",
+  "license": "MIT",
+  "dependencies": {
+    "graceful-fs": "4.1.2",
+    "karma": "0.13.X",
+    "lodash": "4.0.1",
+    "yargs": "3.32.0"
+  },
+  "devDependencies": {
+    "chai": "3.4.1",
+    "mocha": "2.4.3",
+    "rewire": "2.5.1",
+    "sinon": "1.17.3"
+  }
+}

@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+    - "4"
+before_script: PATH="$(npm bin):$PATH" npm install
+script: npm test
+branches:
+  only:
+    - master
+
+#http://docs.travis-ci.com/user/migrating-from-legacy/?utm_source=legacy-notice&utm_medium=banner&utm_campaign=legacy-upgrade#tl%3Bdr
+sudo: false
