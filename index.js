@@ -49,7 +49,7 @@ module.exports = (done, opts) => {
   try {
     let server = new Karma(opts, function(code) {
       logFn(`Karma Callback Code: ${code}`)
-      return done(!code ? undefined : false)
+      return done.apply(null,arguments)
     })
     return server.start()
   } catch (error) {
