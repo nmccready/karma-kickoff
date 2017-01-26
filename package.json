@@ -1,6 +1,6 @@
 {
   "name": "karma-kickoff",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Kick off karma with ease along with running specific specs with one config file.",
   "main": "index.js",
   "scripts": {
