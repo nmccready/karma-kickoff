@@ -19,3 +19,4 @@ tmp/
 
 # Meteor package creation files
 .versions
+*.lock
