@@ -27,7 +27,11 @@ module.exports = (done, opts) => {
   if (!configFile)
     throw new Error('configFile must be defined')
 
-  opts.singleRun = opts.singleRun || true
+  let copy = _.extend({}, getOriginalConfig(configFile, logFn))
+
+  var defaultSingleRun = copy.singleRun != null ? copy.singleRun : true
+  opts.singleRun = opts.singleRun != null ? opts.singleRun : defaultSingleRun
+
   ourOptions.forEach((name) => {
     if (opts[name])
       delete opts[name]
@@ -37,7 +41,6 @@ module.exports = (done, opts) => {
     opts.configFile = require.resolve(configFile)
 
   if (appendFiles) {
-    let copy = _.extend({}, getOriginalConfig(configFile, logFn))
 
     for (let i = 0; i < lengthToPop; i++)
       copy.files.pop()

@@ -29,12 +29,12 @@ describe('karam-kickoff', () => {
 
   it('throws on no config', () => {
     (() => {
-      subject(null, {})
+      subject(null, {singleRun:true})
     }).should.throw('configFile must be defined')
   })
 
   it('calls karma with basic config', () => {
-    subject(null, {configFile: './spec/karma.conf.js'})
+    subject(null, {configFile: './spec/karma.conf.js', singleRun:true})
     karmaStub.called.should.be.true
 
     karmaStub.args[0][0].should.be.eql({singleRun: true, configFile: require.resolve('./karma.conf.js')})
@@ -42,7 +42,7 @@ describe('karam-kickoff', () => {
 
   describe('appendFiles', () => {
     it('calls karma with basic config', () => {
-      subject(null, {configFile: './spec/karma.conf.js', appendFiles: ['file2']})
+      subject(null, {configFile: './spec/karma.conf.js', appendFiles: ['file2'], singleRun:true})
       karmaStub.called.should.be.true
 
       let test = karmaStub.args[0][0]
@@ -54,7 +54,7 @@ describe('karam-kickoff', () => {
     })
 
     it('calls karma with basic config - mult pop', () => {
-      subject(null, {configFile: './spec/karma.conf.js', appendFiles: ['file2'], lengthToPop: 2})
+      subject(null, {configFile: './spec/karma.conf.js', appendFiles: ['file2'], lengthToPop: 2, singleRun:true})
       karmaStub.called.should.be.true
 
       let test = karmaStub.args[0][0]

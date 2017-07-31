@@ -1,10 +1,10 @@
 {
   "name": "karma-kickoff",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Kick off karma with ease along with running specific specs with one config file.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha spec/*.js && ./bin/karma-kickoff"
+    "test": "mocha spec/*.js && ./bin/karma-kickoff --singleRun=true"
   },
   "bin": "./bin/karma-kickoff",
   "repository": {
