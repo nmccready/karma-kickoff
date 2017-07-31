@@ -6,6 +6,7 @@ const fs = require('graceful-fs')
 var configFile = argv.config
 var appendFiles = argv.files
 var lengthToPop = argv.lengthToPop
+var singleRun = argv.singleRun
 
 function getFilePath(fileName) {
   return process.cwd() + '/' + fileName
@@ -31,5 +32,6 @@ kickoff((code) => {
 }, {
   configFile: configFile,
   appendFiles: appendFiles,
-  lengthToPop: lengthToPop
+  lengthToPop: lengthToPop ? parseInt(lengthToPop) : null,
+  singleRun: singleRun ? singleRun == 'true' : null
 })
