@@ -54,7 +54,12 @@ describe('karam-kickoff', () => {
     })
 
     it('calls karma with basic config - mult pop', () => {
-      subject(null, {configFile: './spec/karma.conf.js', appendFiles: ['file2'], lengthToPop: 2, singleRun:true})
+      subject(null, {
+        configFile: './spec/karma.conf.js',
+        appendFiles: ['file2'],
+        lengthToPop: 2,
+        singleRun:true
+      })
       karmaStub.called.should.be.true
 
       let test = karmaStub.args[0][0]

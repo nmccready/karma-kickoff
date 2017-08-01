@@ -3,16 +3,18 @@ const argv = require('yargs').argv
 const kickoff = require('./index')
 const fs = require('graceful-fs')
 
-var configFile = argv.config
-var appendFiles = argv.files
-var lengthToPop = argv.lengthToPop
-var singleRun = argv.singleRun
+let configFile = argv.config
+let appendFiles = argv.files
+let lengthToPop = argv.lengthToPop
+let singleRun = argv.singleRun
+let autoWatch = argv.autoWatch
+let browsers = argv.browsers
 
 function getFilePath(fileName) {
   return process.cwd() + '/' + fileName
 }
 
-var filePath
+let filePath
 
 if (!configFile) {
   // default config file (if exists)
@@ -27,11 +29,19 @@ if (!configFile) {
   }
 }
 
-kickoff((code) => {
-  process.exit(code)
-}, {
+let opts = {
   configFile: configFile,
   appendFiles: appendFiles,
   lengthToPop: lengthToPop ? parseInt(lengthToPop) : null,
   singleRun: singleRun ? singleRun == 'true' : null
-})
+}
+
+if(browsers != null)
+  opts.browsers = browsers.split(',')
+
+if(browsers != null)
+  opts.autoWatch = autoWatch == 'true'
+
+kickoff((code) => {
+  process.exit(code)
+}, opts)
