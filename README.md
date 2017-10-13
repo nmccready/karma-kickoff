@@ -1,6 +1,14 @@
 # karma-kickoff
 Kick off karma with ease along with running specific specs with one config file.
 
+Running specific specs was the initial motivation behind this codebase. However, it has derrived into overriding several options of karma. All of this with the intent of not modifying the original config file. Why do this? Because this allows developers to quickly test and iterate changes without testing the entire suite. This also allows developers to not accidentally commit bad config changes (agreed amongst the team) to the main karma config file. Lastly, this keeps you from having several variations of configs to test the littlest (short term) of cases.
+
+CLI Example:
+
+```
+karma-kickoff --files=./test/unit/*DatePicker*.Spec.js --browsers=Chrome --singleRun=false --autoWatch=true --disableCoverage=true
+```
+
 Example:
 
 ```coffee
